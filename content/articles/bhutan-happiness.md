@@ -1,4 +1,3 @@
-
 ---
 title: "Bhutan's Gross National Happiness: Lessons from the World's Last Shangri-La"
 slug: "bhutan-happiness"

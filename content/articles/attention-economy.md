@@ -1,4 +1,3 @@
-
 ---
 title: "The Attention Economy: How Big Tech Monetizes Your Focus"
 slug: "attention-economy"

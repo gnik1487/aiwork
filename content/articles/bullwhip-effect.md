@@ -1,4 +1,3 @@
-
 ---
 title: "The Bullwhip Effect: How a Small Demand Shift Creates Supply Chain Chaos"
 slug: "bullwhip-effect"

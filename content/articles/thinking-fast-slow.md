@@ -1,4 +1,3 @@
-
 ---
 title: "Why Thinking, Fast and Slow Changed How We Understand Decision Making"
 slug: "thinking-fast-slow"
