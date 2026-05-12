@@ -1,0 +1,65 @@
+/* ============================================
+   ZULOMA — Data Visualization / Charts
+   ============================================ */
+
+/* ── Bar Chart ── */
+.chart-container { margin: var(--space-8) 0; padding: var(--space-6); background: hsl(var(--surface)); border-radius: var(--radius-lg); }
+.chart-title { font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-4); color: hsl(var(--fg)); }
+.chart-subtitle { font-size: var(--text-xs); color: hsl(var(--muted)); margin-bottom: var(--space-6); }
+.bar-chart { display: flex; flex-direction: column; gap: var(--space-3); }
+.bar-row { display: flex; align-items: center; gap: var(--space-3); }
+.bar-label { width: 120px; flex-shrink: 0; font-size: var(--text-xs); color: hsl(var(--muted)); text-align: right; }
+.bar-track { flex: 1; height: 28px; background: hsl(var(--bg)); border-radius: var(--radius-sm); overflow: hidden; position: relative; }
+.bar-fill { height: 100%; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: flex-end; padding-right: var(--space-2); font-size: var(--text-xs); font-weight: 600; color: #fff; min-width: 30px; transition: width 1s var(--ease-out); }
+.bar-fill.travel { background: hsl(var(--cat-travel)); }
+.bar-fill.supply { background: hsl(var(--cat-supply)); }
+.bar-fill.books { background: hsl(var(--cat-books)); }
+.bar-fill.research { background: hsl(var(--cat-research)); }
+.bar-fill.accent { background: hsl(var(--accent)); }
+.bar-fill.warm { background: hsl(var(--accent-warm)); }
+.bar-value { width: 50px; font-size: var(--text-xs); font-weight: 600; color: hsl(var(--fg)); }
+@media (max-width: 480px) {
+  .bar-label { width: 80px; font-size: 0.65rem; }
+  .bar-track { height: 22px; }
+}
+
+/* ── Donut Chart ── */
+.donut-chart-wrapper { display: flex; align-items: center; gap: var(--space-8); margin: var(--space-8) 0; padding: var(--space-6); background: hsl(var(--surface)); border-radius: var(--radius-lg); }
+.donut-chart { width: 140px; height: 140px; border-radius: 50%; position: relative; flex-shrink: 0; }
+.donut-chart-center { position: absolute; inset: 25%; background: hsl(var(--surface)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.donut-chart-center .big-num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: hsl(var(--fg)); line-height: 1; }
+.donut-chart-center .small-text { font-size: var(--text-xs); color: hsl(var(--muted)); }
+.donut-legend { display: flex; flex-direction: column; gap: var(--space-3); }
+.legend-item { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: hsl(var(--prose-body)); }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+@media (max-width: 480px) {
+  .donut-chart-wrapper { flex-direction: column; text-align: center; }
+}
+
+/* ── Comparison Table ── */
+.comparison-table { margin: var(--space-8) 0; overflow-x: auto; }
+.comparison-table table { width: 100%; border: 1px solid hsl(var(--border)); border-radius: var(--radius-md); overflow: hidden; }
+.comparison-table th { background: hsl(var(--surface)); padding: var(--space-3) var(--space-4); font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-wider); color: hsl(var(--muted)); text-align: left; border-bottom: 1px solid hsl(var(--border)); }
+.comparison-table td { padding: var(--space-3) var(--space-4); font-size: var(--text-sm); color: hsl(var(--prose-body)); border-bottom: 1px solid hsl(var(--border-subtle)); }
+.comparison-table tr:last-child td { border-bottom: none; }
+.comparison-table tr:hover td { background: hsla(var(--accent), 0.04); }
+.comparison-table .check { color: hsl(var(--success)); font-weight: 700; }
+.comparison-table .cross { color: hsl(var(--danger)); }
+
+/* ── Timeline ── */
+.timeline { position: relative; margin: var(--space-10) 0; padding-left: var(--space-8); }
+.timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: hsl(var(--border)); }
+.timeline-item { position: relative; margin-bottom: var(--space-8); }
+.timeline-item::before { content: ''; position: absolute; left: calc(-1 * var(--space-8) + 8px); top: 6px; width: 10px; height: 10px; border-radius: 50%; background: hsl(var(--accent)); border: 2px solid hsl(var(--bg)); }
+.timeline-year { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: hsl(var(--accent)); margin-bottom: var(--space-1); }
+.timeline-text { font-size: var(--text-sm); color: hsl(var(--prose-body)); line-height: var(--leading-relaxed); }
+
+/* ── Infographic Number ── */
+.info-number { display: inline-flex; align-items: baseline; gap: var(--space-1); }
+.info-number .num { font-family: var(--font-display); font-size: var(--text-5xl); font-weight: 700; color: hsl(var(--accent)); line-height: 1; }
+.info-number .unit { font-size: var(--text-xl); color: hsl(var(--muted)); font-weight: 500; }
+
+/* ── Inline Stat ── */
+.inline-stat { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3); background: hsl(var(--surface)); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; color: hsl(var(--fg)); white-space: nowrap; }
+.inline-stat.up { color: hsl(var(--success)); }
+.inline-stat.down { color: hsl(var(--danger)); }

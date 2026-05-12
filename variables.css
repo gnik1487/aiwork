@@ -1,0 +1,230 @@
+/* ============================================
+   ZULOMA — Design Tokens & Theme Variables
+   ============================================ */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ── Typography ── */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Type Scale (Major Third — 1.25) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+
+  /* Line Heights */
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  --leading-loose: 1.9;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.15em;
+  --tracking-caps: 0.2em;
+
+  /* ── Spacing Scale ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+  --space-48: 12rem;
+
+  /* ── Container ── */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1400px;
+  --container-prose: 720px;
+
+  /* ── Border Radius ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.10);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.12);
+  --shadow-2xl: 0 24px 64px rgba(0,0,0,0.16);
+  --shadow-inner: inset 0 2px 4px rgba(0,0,0,0.06);
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+
+  /* ── Z-Index ── */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-navbar: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+  --z-progress: 700;
+
+  /* ── Category Colors (HSL) ── */
+  --cat-travel: 170, 45%, 40%;
+  --cat-supply: 215, 50%, 45%;
+  --cat-books: 35, 65%, 48%;
+  --cat-research: 265, 35%, 50%;
+}
+
+/* ──────────────────────────────────────────────
+   LIGHT THEME (Default)
+   ────────────────────────────────────────────── */
+[data-theme="light"], :root {
+  --bg: 40, 25%, 96%;
+  --bg-rgb: 247, 244, 239;
+  --fg: 30, 15%, 12%;
+  --fg-rgb: 35, 32, 27;
+
+  --surface: 38, 20%, 92%;
+  --surface-raised: 38, 22%, 94%;
+  --surface-overlay: 38, 20%, 98%;
+
+  --border: 35, 12%, 82%;
+  --border-subtle: 35, 10%, 88%;
+
+  --muted: 30, 8%, 55%;
+  --muted-light: 30, 6%, 72%;
+
+  --accent: 152, 35%, 32%;
+  --accent-rgb: 53, 110, 80;
+  --accent-hover: 152, 38%, 26%;
+  --accent-light: 152, 25%, 90%;
+  --accent-text: 152, 35%, 28%;
+
+  --accent-warm: 28, 70%, 52%;
+  --accent-warm-light: 28, 50%, 92%;
+
+  --danger: 0, 65%, 50%;
+  --success: 145, 55%, 38%;
+  --warning: 40, 85%, 55%;
+
+  /* Prose */
+  --prose-body: 30, 10%, 25%;
+  --prose-heading: 30, 15%, 10%;
+  --prose-link: 152, 40%, 30%;
+  --prose-quote-border: 152, 30%, 65%;
+  --prose-quote-text: 30, 8%, 40%;
+  --prose-caption: 30, 6%, 50%;
+  --prose-code-bg: 38, 18%, 90%;
+
+  /* Navbar */
+  --nav-bg: rgba(247, 244, 239, 0.85);
+  --nav-border: rgba(0, 0, 0, 0.06);
+
+  /* Cards */
+  --card-bg: 0, 0%, 100%;
+  --card-hover-bg: 38, 25%, 98%;
+  --card-border: 35, 12%, 88%;
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-lg);
+
+  /* Progress bar */
+  --progress-bg: hsl(var(--accent));
+  --progress-track: hsl(var(--border-subtle));
+}
+
+/* ──────────────────────────────────────────────
+   DARK THEME
+   ────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg: 220, 15%, 8%;
+  --bg-rgb: 18, 20, 23;
+  --fg: 40, 10%, 90%;
+  --fg-rgb: 232, 229, 224;
+
+  --surface: 220, 12%, 12%;
+  --surface-raised: 220, 12%, 15%;
+  --surface-overlay: 220, 12%, 18%;
+
+  --border: 220, 10%, 20%;
+  --border-subtle: 220, 8%, 16%;
+
+  --muted: 220, 6%, 50%;
+  --muted-light: 220, 5%, 35%;
+
+  --accent: 152, 45%, 45%;
+  --accent-rgb: 63, 166, 115;
+  --accent-hover: 152, 50%, 52%;
+  --accent-light: 152, 30%, 15%;
+  --accent-text: 152, 45%, 55%;
+
+  --accent-warm: 28, 65%, 55%;
+  --accent-warm-light: 28, 40%, 15%;
+
+  --danger: 0, 60%, 55%;
+  --success: 145, 50%, 45%;
+  --warning: 40, 80%, 55%;
+
+  /* Prose */
+  --prose-body: 40, 6%, 72%;
+  --prose-heading: 40, 8%, 92%;
+  --prose-link: 152, 50%, 50%;
+  --prose-quote-border: 152, 30%, 35%;
+  --prose-quote-text: 40, 5%, 60%;
+  --prose-caption: 220, 5%, 50%;
+  --prose-code-bg: 220, 12%, 15%;
+
+  /* Navbar */
+  --nav-bg: rgba(18, 20, 23, 0.88);
+  --nav-border: rgba(255, 255, 255, 0.06);
+
+  /* Cards */
+  --card-bg: 220, 12%, 13%;
+  --card-hover-bg: 220, 12%, 16%;
+  --card-border: 220, 10%, 22%;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --card-shadow-hover: 0 8px 32px rgba(0,0,0,0.4);
+
+  /* Shadows override */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.25);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.35);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.4);
+  --shadow-2xl: 0 24px 64px rgba(0,0,0,0.5);
+
+  /* Progress bar */
+  --progress-bg: hsl(var(--accent));
+  --progress-track: hsl(var(--border));
+}

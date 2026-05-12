@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zuloma — Deep Insights on Travel, Supply Chain, Books & Research</title>
+  <meta name="description" content="Zuloma delivers deep, research-driven articles on travel, supply chain logistics, books, and fascinating research topics. Choose between quick reads and in-depth long-form analysis.">
+  <meta property="og:title" content="Zuloma — Deep Insights on Travel, Supply Chain, Books & Research">
+  <meta property="og:description" content="Research-driven articles with infographics, data, and insights. Short-form summaries and long-form deep dives.">
+  <meta property="og:image" content="/opengraph.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layouts.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/charts.css">
+  <script defer src="/js/main.js"></script>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="navbar-logo">Zulo<span>ma</span></a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/articles.html">Articles</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://patreon.com/Zuloma?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" class="btn btn-accent btn-sm">Support Us</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+  <a href="/">Home</a>
+  <a href="/articles.html">Articles</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="https://patreon.com/Zuloma" target="_blank">Support on Patreon</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="/images/hero-main.png" alt="Misty mountain landscape" loading="eager">
+  </div>
+  <div class="container hero-content">
+    <div class="label-text text-accent" style="margin-bottom: var(--space-4);">Deep Insights & Research</div>
+    <h1 class="hero-title">Explore Ideas That Shape Our World</h1>
+    <p class="hero-subtitle">From ancient trade routes to modern supply chains, from timeless books to cutting-edge research — Zuloma delivers deep, data-driven stories in the format you prefer.</p>
+    <div style="display:flex; gap: var(--space-4); flex-wrap: wrap;">
+      <a href="/articles.html" class="btn btn-primary btn-lg">Explore Articles</a>
+      <a href="/about.html" class="btn btn-outline btn-lg">About Zuloma</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FEATURED ARTICLE ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="label-text">Featured Story</span></div>
+    </div>
+    <a href="/article-silk-road-revival.html" style="text-decoration:none;">
+      <div class="card card-featured card-shine reveal">
+        <div class="card-image">
+          <img src="/images/featured-1.png" alt="The Silk Road Revival">
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-travel">Travel</span>
+            <span class="dot"></span>
+            <span>12 min read</span>
+            <span class="dot"></span>
+            <span>May 2025</span>
+          </div>
+          <h2 class="card-title" style="font-size: var(--text-3xl);">The Silk Road Revival: How Ancient Trade Routes Are Reshaping Modern Tourism</h2>
+          <p class="card-excerpt">From Samarkand's turquoise domes to Xi'an's terracotta warriors, the ancient Silk Road is experiencing a renaissance. Billions in infrastructure investment are transforming these routes into the world's most ambitious tourism corridor.</p>
+          <div style="margin-top: var(--space-6);">
+            <span class="btn btn-outline btn-sm">Read Article →</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ CATEGORIES ═══════════ -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="label-text">Explore Topics</span></div>
+      <h2 class="section-title">What We Write About</h2>
+    </div>
+    <div class="category-grid stagger-children">
+      <a href="/articles.html?cat=travel" class="category-card travel">
+        <div class="category-card-icon">🌍</div>
+        <div class="category-card-name">Travel</div>
+        <div class="category-card-count">5 Articles</div>
+      </a>
+      <a href="/articles.html?cat=supply" class="category-card supply">
+        <div class="category-card-icon">📦</div>
+        <div class="category-card-name">Supply Chain</div>
+        <div class="category-card-count">5 Articles</div>
+      </a>
+      <a href="/articles.html?cat=books" class="category-card books">
+        <div class="category-card-icon">📚</div>
+        <div class="category-card-name">Books</div>
+        <div class="category-card-count">5 Articles</div>
+      </a>
+      <a href="/articles.html?cat=research" class="category-card research">
+        <div class="category-card-icon">🔬</div>
+        <div class="category-card-name">Research</div>
+        <div class="category-card-count">5 Articles</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LATEST ARTICLES ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header flex justify-between items-center reveal">
+      <div>
+        <div class="section-label"><span class="label-text">Latest</span></div>
+        <h2 class="section-title">Recent Articles</h2>
+      </div>
+      <a href="/articles.html" class="btn btn-outline btn-sm">View All →</a>
+    </div>
+    <div class="articles-grid stagger-children">
+      <!-- Card 1 -->
+      <a href="/article-bullwhip-effect.html" class="card card-shine" style="text-decoration:none;">
+        <div class="card-image"><img src="/images/featured-2.png" alt="The Bullwhip Effect"></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="badge badge-supply">Supply Chain</span><span class="dot"></span><span>8 min</span></div>
+          <h3 class="card-title">The Bullwhip Effect: How a Small Demand Shift Creates Supply Chain Chaos</h3>
+          <p class="card-excerpt">A 5% increase in consumer demand can become a 40% spike at the manufacturer level. Here's how the bullwhip effect works — and how to tame it.</p>
+        </div>
+      </a>
+      <!-- Card 2 -->
+      <a href="/article-thinking-fast-slow.html" class="card card-shine" style="text-decoration:none;">
+        <div class="card-image"><img src="/images/featured-3.png" alt="Thinking Fast and Slow"></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="badge badge-books">Books</span><span class="dot"></span><span>10 min</span></div>
+          <h3 class="card-title">Why "Thinking, Fast and Slow" Changed How We Understand Decision Making</h3>
+          <p class="card-excerpt">Daniel Kahneman's masterpiece revealed two systems governing our minds. A decade later, its insights remain more relevant than ever.</p>
+        </div>
+      </a>
+      <!-- Card 3 -->
+      <a href="/article-attention-economy.html" class="card card-shine" style="text-decoration:none;">
+        <div class="card-image"><img src="/images/about-hero.png" alt="The Attention Economy"></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="badge badge-research">Research</span><span class="dot"></span><span>9 min</span></div>
+          <h3 class="card-title">The Attention Economy: How Big Tech Monetizes Your Focus</h3>
+          <p class="card-excerpt">Your attention is worth $1,200 per year to advertisers. Understand the mechanics of the attention economy and how it shapes your daily choices.</p>
+        </div>
+      </a>
+      <!-- Card 4 -->
+      <a href="/article-bhutan-happiness.html" class="card card-shine" style="text-decoration:none;">
+        <div class="card-image"><img src="/images/hero-main.png" alt="Bhutan"></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="badge badge-travel">Travel</span><span class="dot"></span><span>7 min</span></div>
+          <h3 class="card-title">Bhutan's Gross National Happiness: Lessons from the World's Last Shangri-La</h3>
+          <p class="card-excerpt">A tiny Himalayan kingdom replaced GDP with happiness as its measure of progress. What the world can learn from Bhutan's radical experiment.</p>
+        </div>
+      </a>
+      <!-- Card 5 -->
+      <a href="/article-farm-to-fork.html" class="card card-shine" style="text-decoration:none;">
+        <div class="card-image"><img src="/images/featured-1.png" alt="Coffee Journey"></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="badge badge-supply">Supply Chain</span><span class="dot"></span><span>11 min</span></div>
+          <h3 class="card-title">From Farm to Fork: The Hidden Journey of Your Morning Coffee</h3>
+          <p class="card-excerpt">Your $5 latte traveled 10,000 miles and passed through 30 hands before reaching your cup. Follow coffee's extraordinary global journey.</p>
+        </div>
+      </a>
+      <!-- Card 6 -->
+      <a href="/article-fermi-paradox.html" class="card card-shine" style="text-decoration:none;">
+        <div class="card-image"><img src="/images/featured-2.png" alt="Fermi Paradox"></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="badge badge-research">Research</span><span class="dot"></span><span>14 min</span></div>
+          <h3 class="card-title">The Fermi Paradox: Where Is Everybody?</h3>
+          <p class="card-excerpt">There are 200 billion trillion stars in the universe. So where are all the aliens? Explore the most fascinating question in science.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ READING MODE SHOWCASE ═══════════ -->
+<section class="section-alt">
+  <div class="container" style="max-width: var(--container-lg);">
+    <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+      <div class="section-label" style="justify-content:center;"><span class="label-text">Two Ways to Read</span></div>
+      <h2 class="section-title">Choose Your Reading Depth</h2>
+      <p class="section-subtitle" style="margin: var(--space-4) auto 0;">Every article comes in two formats. Quick insights when you're short on time, or deep dives when you want the full picture.</p>
+    </div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-8);">
+      <div class="reveal" style="padding: var(--space-8); background: hsl(var(--bg)); border-radius: var(--radius-lg); border: 1px solid hsl(var(--border));">
+        <div style="display:flex; align-items:center; gap: var(--space-3); margin-bottom: var(--space-4);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(152,35%,32%)" stroke-width="2"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          <h3 style="font-size: var(--text-lg);">Short Form</h3>
+        </div>
+        <div style="font-size: var(--text-4xl); font-family: var(--font-display); font-weight:700; color: hsl(var(--accent)); margin-bottom: var(--space-3);">~600 words</div>
+        <p style="font-size: var(--text-sm); color: hsl(var(--muted)); line-height: var(--leading-relaxed);">Key insights, infographics, and data charts. Perfect for a 3-minute coffee break. Every article distilled to its essence with visual data.</p>
+      </div>
+      <div class="reveal reveal-delay-2" style="padding: var(--space-8); background: hsl(var(--bg)); border-radius: var(--radius-lg); border: 1px solid hsl(var(--border));">
+        <div style="display:flex; align-items:center; gap: var(--space-3); margin-bottom: var(--space-4);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(152,35%,32%)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          <h3 style="font-size: var(--text-lg);">Long Form</h3>
+        </div>
+        <div style="font-size: var(--text-4xl); font-family: var(--font-display); font-weight:700; color: hsl(var(--accent)); margin-bottom: var(--space-3);">~4,000 words</div>
+        <p style="font-size: var(--text-sm); color: hsl(var(--muted)); line-height: var(--leading-relaxed);">In-depth analysis with original research, expert interviews, historical context, and comprehensive source citations. For serious readers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NEWSLETTER ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="newsletter-section reveal">
+      <div class="label-text text-accent" style="margin-bottom: var(--space-4);">Stay Curious</div>
+      <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-3);">Get Deep Insights Delivered</h2>
+      <p style="color: hsl(var(--muted)); max-width: 500px; margin: 0 auto; font-size: var(--text-sm); line-height: var(--leading-relaxed);">Join readers who want more than surface-level takes. One deeply researched article per week, straight to your inbox.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit" class="btn btn-accent">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="navbar-logo">Zulo<span>ma</span></a>
+        <p>Deep insights and research-driven articles on travel, supply chains, books, and the ideas shaping our world.</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/articles.html">All Articles</a></li>
+          <li><a href="/articles.html?cat=travel">Travel</a></li>
+          <li><a href="/articles.html?cat=supply">Supply Chain</a></li>
+          <li><a href="/articles.html?cat=books">Books</a></li>
+          <li><a href="/articles.html?cat=research">Research</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Company</h4>
+        <ul class="footer-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="https://patreon.com/Zuloma" target="_blank">Support on Patreon</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Connect</h4>
+        <ul class="footer-links">
+          <li><a href="https://youtube.com/@zuloma" target="_blank">YouTube</a></li>
+          <li><a href="https://www.instagram.com/zulomaofficial/" target="_blank">Instagram</a></li>
+          <li><a href="https://x.com/zulomaofficial" target="_blank">X (Twitter)</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61588804873615" target="_blank">Facebook</a></li>
+          <li><a href="https://in.pinterest.com/zulomaofficial/" target="_blank">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Zuloma. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://youtube.com/@zuloma" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://www.instagram.com/zulomaofficial/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://x.com/zulomaofficial" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://in.pinterest.com/zulomaofficial/" target="_blank" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61588804873615" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

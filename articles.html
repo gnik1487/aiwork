@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles — Zuloma</title>
+  <meta name="description" content="Browse all Zuloma articles across Travel, Supply Chain, Books, and Research. Choose your reading depth — short form or long form.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layouts.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <script defer src="/js/main.js"></script>
+  <script defer src="/js/articles.js"></script>
+</head>
+<body>
+
+<nav class="navbar"><div class="navbar-inner">
+  <a href="/" class="navbar-logo">Zulo<span>ma</span></a>
+  <ul class="nav-links"><li><a href="/">Home</a></li><li><a href="/articles.html" class="active">Articles</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul>
+  <div class="nav-actions">
+    <a href="https://patreon.com/Zuloma" target="_blank" class="btn btn-accent btn-sm">Support Us</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-nav"><a href="/">Home</a><a href="/articles.html">Articles</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div>
+
+<section style="padding-top: var(--space-32);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="label-text">All Articles</span></div>
+      <h1 style="font-size: var(--text-5xl);">Explore Our Writing</h1>
+      <p class="section-subtitle">20 deeply researched articles across four categories. Toggle between quick reads and deep dives.</p>
+    </div>
+
+    <!-- Search & Filters -->
+    <div class="flex justify-between items-center flex-wrap gap-4" style="margin-bottom: var(--space-8);">
+      <div class="filter-pills">
+        <button class="filter-pill active" data-category="all">All</button>
+        <button class="filter-pill" data-category="travel">🌍 Travel</button>
+        <button class="filter-pill" data-category="supply">📦 Supply Chain</button>
+        <button class="filter-pill" data-category="books">📚 Books</button>
+        <button class="filter-pill" data-category="research">🔬 Research</button>
+      </div>
+      <input type="text" id="article-search" placeholder="Search articles..." style="padding: 0.5rem 1rem; background: hsl(var(--surface)); border: 1px solid hsl(var(--border)); border-radius: var(--radius-full); font-size: var(--text-sm); color: hsl(var(--fg)); width: 240px;">
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="articles-grid stagger-children">
+
+      <a href="/article-silk-road-revival.html" class="card card-shine article-card" data-category="travel" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-1.png" alt="Silk Road"></div><div class="card-body"><div class="card-meta"><span class="badge badge-travel">Travel</span><span class="dot"></span><span>12 min</span></div><h3 class="card-title">The Silk Road Revival: How Ancient Trade Routes Are Reshaping Modern Tourism</h3><p class="card-excerpt">Billions in infrastructure investment are transforming ancient Silk Road routes into the world's most ambitious tourism corridor.</p></div></a>
+
+      <a href="/article-bhutan-happiness.html" class="card card-shine article-card" data-category="travel" style="text-decoration:none;"><div class="card-image"><img src="/images/hero-main.png" alt="Bhutan"></div><div class="card-body"><div class="card-meta"><span class="badge badge-travel">Travel</span><span class="dot"></span><span>7 min</span></div><h3 class="card-title">Bhutan's Gross National Happiness: Lessons from the World's Last Shangri-La</h3><p class="card-excerpt">A tiny Himalayan kingdom replaced GDP with happiness as its measure of progress.</p></div></a>
+
+      <a href="/article-dark-tourism.html" class="card card-shine article-card" data-category="travel" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-3.png" alt="Dark Tourism"></div><div class="card-body"><div class="card-meta"><span class="badge badge-travel">Travel</span><span class="dot"></span><span>8 min</span></div><h3 class="card-title">Dark Tourism: Why Millions Visit Sites of Tragedy and Disaster</h3><p class="card-excerpt">From Chernobyl to Pompeii, the psychology behind our fascination with disaster sites.</p></div></a>
+
+      <a href="/article-slow-travel.html" class="card card-shine article-card" data-category="travel" style="text-decoration:none;"><div class="card-image"><img src="/images/about-hero.png" alt="Slow Travel"></div><div class="card-body"><div class="card-meta"><span class="badge badge-travel">Travel</span><span class="dot"></span><span>6 min</span></div><h3 class="card-title">The Rise of Slow Travel: Why the Journey Matters More Than the Destination</h3><p class="card-excerpt">A counter-movement to mass tourism that's changing how we experience the world.</p></div></a>
+
+      <a href="/article-underwater-cities.html" class="card card-shine article-card" data-category="travel" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-2.png" alt="Underwater Cities"></div><div class="card-body"><div class="card-meta"><span class="badge badge-travel">Travel</span><span class="dot"></span><span>9 min</span></div><h3 class="card-title">Underwater Cities: 7 Sunken Civilizations You Can Actually Visit</h3><p class="card-excerpt">Lost cities beneath the waves — from Egypt's Heracleion to Jamaica's Port Royal.</p></div></a>
+
+      <a href="/article-bullwhip-effect.html" class="card card-shine article-card" data-category="supply" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-2.png" alt="Bullwhip Effect"></div><div class="card-body"><div class="card-meta"><span class="badge badge-supply">Supply Chain</span><span class="dot"></span><span>8 min</span></div><h3 class="card-title">The Bullwhip Effect: How a Small Demand Shift Creates Supply Chain Chaos</h3><p class="card-excerpt">A 5% increase in consumer demand can become a 40% spike at the manufacturer level.</p></div></a>
+
+      <a href="/article-farm-to-fork.html" class="card card-shine article-card" data-category="supply" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-1.png" alt="Coffee Journey"></div><div class="card-body"><div class="card-meta"><span class="badge badge-supply">Supply Chain</span><span class="dot"></span><span>11 min</span></div><h3 class="card-title">From Farm to Fork: The Hidden Journey of Your Morning Coffee</h3><p class="card-excerpt">Your $5 latte traveled 10,000 miles and passed through 30 hands before reaching your cup.</p></div></a>
+
+      <a href="/article-blockchain-supply-chain.html" class="card card-shine article-card" data-category="supply" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-3.png" alt="Blockchain"></div><div class="card-body"><div class="card-meta"><span class="badge badge-supply">Supply Chain</span><span class="dot"></span><span>9 min</span></div><h3 class="card-title">Blockchain in Supply Chain: Beyond the Hype</h3><p class="card-excerpt">Separating blockchain's genuine supply chain applications from the marketing noise.</p></div></a>
+
+      <a href="/article-suez-canal-crisis.html" class="card card-shine article-card" data-category="supply" style="text-decoration:none;"><div class="card-image"><img src="/images/about-hero.png" alt="Suez Canal"></div><div class="card-body"><div class="card-meta"><span class="badge badge-supply">Supply Chain</span><span class="dot"></span><span>10 min</span></div><h3 class="card-title">The Suez Canal Crisis and Global Trade: What One Ship Taught the World</h3><p class="card-excerpt">When the Ever Given ran aground, it exposed the fragility of global commerce.</p></div></a>
+
+      <a href="/article-last-mile-delivery.html" class="card card-shine article-card" data-category="supply" style="text-decoration:none;"><div class="card-image"><img src="/images/hero-main.png" alt="Last Mile"></div><div class="card-body"><div class="card-meta"><span class="badge badge-supply">Supply Chain</span><span class="dot"></span><span>8 min</span></div><h3 class="card-title">Last Mile Delivery: The Most Expensive Problem in Logistics</h3><p class="card-excerpt">The last mile accounts for 53% of total shipping costs. Here's why — and what's next.</p></div></a>
+
+      <a href="/article-thinking-fast-slow.html" class="card card-shine article-card" data-category="books" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-3.png" alt="Thinking Fast Slow"></div><div class="card-body"><div class="card-meta"><span class="badge badge-books">Books</span><span class="dot"></span><span>10 min</span></div><h3 class="card-title">Why "Thinking, Fast and Slow" Changed How We Understand Decision Making</h3><p class="card-excerpt">Daniel Kahneman's masterpiece revealed two systems governing our minds.</p></div></a>
+
+      <a href="/article-influential-books.html" class="card card-shine article-card" data-category="books" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-1.png" alt="Influential Books"></div><div class="card-body"><div class="card-meta"><span class="badge badge-books">Books</span><span class="dot"></span><span>13 min</span></div><h3 class="card-title">The 10 Most Influential Books of the 21st Century (So Far)</h3><p class="card-excerpt">From Sapiens to Piketty, the books that defined how we think about our era.</p></div></a>
+
+      <a href="/article-sapiens-vs-guns.html" class="card card-shine article-card" data-category="books" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-2.png" alt="Sapiens vs GGS"></div><div class="card-body"><div class="card-meta"><span class="badge badge-books">Books</span><span class="dot"></span><span>11 min</span></div><h3 class="card-title">Sapiens vs. Guns, Germs, and Steel: Two Visions of Human History</h3><p class="card-excerpt">Two blockbuster books, two radically different explanations for human civilization.</p></div></a>
+
+      <a href="/article-science-of-reading.html" class="card card-shine article-card" data-category="books" style="text-decoration:none;"><div class="card-image"><img src="/images/about-hero.png" alt="Science of Reading"></div><div class="card-body"><div class="card-meta"><span class="badge badge-books">Books</span><span class="dot"></span><span>7 min</span></div><h3 class="card-title">The Science of Reading: Why Physical Books Still Beat Digital</h3><p class="card-excerpt">Neuroscience reveals why your brain processes print differently from screens.</p></div></a>
+
+      <a href="/article-stoic-philosophy.html" class="card card-shine article-card" data-category="books" style="text-decoration:none;"><div class="card-image"><img src="/images/hero-main.png" alt="Stoic Philosophy"></div><div class="card-body"><div class="card-meta"><span class="badge badge-books">Books</span><span class="dot"></span><span>9 min</span></div><h3 class="card-title">Stoic Philosophy in Modern Life: A Reader's Guide to Marcus Aurelius</h3><p class="card-excerpt">Ancient wisdom for modern anxiety — practical lessons from the philosopher emperor.</p></div></a>
+
+      <a href="/article-attention-economy.html" class="card card-shine article-card" data-category="research" style="text-decoration:none;"><div class="card-image"><img src="/images/about-hero.png" alt="Attention Economy"></div><div class="card-body"><div class="card-meta"><span class="badge badge-research">Research</span><span class="dot"></span><span>9 min</span></div><h3 class="card-title">The Attention Economy: How Big Tech Monetizes Your Focus</h3><p class="card-excerpt">Your attention is worth $1,200 per year to advertisers.</p></div></a>
+
+      <a href="/article-decision-fatigue.html" class="card card-shine article-card" data-category="research" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-1.png" alt="Decision Fatigue"></div><div class="card-body"><div class="card-meta"><span class="badge badge-research">Research</span><span class="dot"></span><span>7 min</span></div><h3 class="card-title">Decision Fatigue: Why You Make Worse Choices at the End of the Day</h3><p class="card-excerpt">Judges grant parole 65% of the time in the morning but nearly 0% late afternoon.</p></div></a>
+
+      <a href="/article-fermi-paradox.html" class="card card-shine article-card" data-category="research" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-2.png" alt="Fermi Paradox"></div><div class="card-body"><div class="card-meta"><span class="badge badge-research">Research</span><span class="dot"></span><span>14 min</span></div><h3 class="card-title">The Fermi Paradox: Where Is Everybody?</h3><p class="card-excerpt">There are 200 billion trillion stars in the universe. So where are all the aliens?</p></div></a>
+
+      <a href="/article-second-order-thinking.html" class="card card-shine article-card" data-category="research" style="text-decoration:none;"><div class="card-image"><img src="/images/featured-3.png" alt="Second Order Thinking"></div><div class="card-body"><div class="card-meta"><span class="badge badge-research">Research</span><span class="dot"></span><span>8 min</span></div><h3 class="card-title">Second-Order Thinking: The Mental Model That Separates Good from Great</h3><p class="card-excerpt">First-order thinkers ask "what happens next?" Second-order thinkers ask "and then what?"</p></div></a>
+
+      <a href="/article-psychology-of-money.html" class="card card-shine article-card" data-category="research" style="text-decoration:none;"><div class="card-image"><img src="/images/hero-main.png" alt="Psychology of Money"></div><div class="card-body"><div class="card-meta"><span class="badge badge-research">Research</span><span class="dot"></span><span>10 min</span></div><h3 class="card-title">The Psychology of Money: Why We Make Irrational Financial Decisions</h3><p class="card-excerpt">We're not calculating machines — we're emotional beings making financial choices.</p></div></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="/" class="navbar-logo">Zulo<span>ma</span></a><p>Deep insights and research-driven articles on travel, supply chains, books, and the ideas shaping our world.</p></div>
+    <div><h4 class="footer-heading">Explore</h4><ul class="footer-links"><li><a href="/articles.html">All Articles</a></li><li><a href="/articles.html?cat=travel">Travel</a></li><li><a href="/articles.html?cat=supply">Supply Chain</a></li><li><a href="/articles.html?cat=books">Books</a></li><li><a href="/articles.html?cat=research">Research</a></li></ul></div>
+    <div><h4 class="footer-heading">Company</h4><ul class="footer-links"><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="https://patreon.com/Zuloma" target="_blank">Patreon</a></li></ul></div>
+    <div><h4 class="footer-heading">Connect</h4><ul class="footer-links"><li><a href="https://youtube.com/@zuloma" target="_blank">YouTube</a></li><li><a href="https://www.instagram.com/zulomaofficial/" target="_blank">Instagram</a></li><li><a href="https://x.com/zulomaofficial" target="_blank">X (Twitter)</a></li><li><a href="https://www.facebook.com/profile.php?id=61588804873615" target="_blank">Facebook</a></li><li><a href="https://in.pinterest.com/zulomaofficial/" target="_blank">Pinterest</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2025 Zuloma. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://youtube.com/@zuloma" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.instagram.com/zulomaofficial/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="https://x.com/zulomaofficial" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://in.pinterest.com/zulomaofficial/" target="_blank" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+    </div>
+  </div>
+</div></footer>
+
+</body>
+</html>
