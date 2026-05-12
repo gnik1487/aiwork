@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initMobileMenu();
   initHeroAnimation();
+  initHeroParallax();
 });
 
 /* ── Theme Toggle ── */
@@ -102,6 +103,40 @@ function initHeroAnimation() {
   heroTitle.innerHTML = words.map(w => `<span class="word">${w}</span>`).join(' ');
 
   setTimeout(() => heroTitle.classList.add('animated'), 200);
+}
+
+/* ── Hero Parallax Effect ── */
+function initHeroParallax() {
+  const heroBgImg = document.querySelector('.hero-bg img');
+  const hero = document.querySelector('.hero');
+  if (!heroBgImg || !hero) return;
+
+  let ticking = false;
+
+  function updateParallax() {
+    const rect = hero.getBoundingClientRect();
+    const scrollTop = window.scrollY;
+    const heroHeight = rect.height;
+    const heroTop = rect.top + scrollTop;
+
+    // Only apply parallax when hero is in viewport
+    if (scrollTop + window.innerHeight > heroTop && scrollTop < heroTop + heroHeight) {
+      const parallaxOffset = (scrollTop - heroTop) * 0.5; // Adjust 0.5 for parallax speed
+      heroBgImg.style.transform = `translateY(${parallaxOffset}px)`;
+    }
+
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', requestTick);
+  updateParallax(); // Initial call
 }
 
 /* ── Smooth Scroll for Anchor Links ── */
