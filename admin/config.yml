@@ -1,0 +1,52 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+site_url: https://zuloma.com
+display_url: https://zuloma.com
+logo_url: /favicon.svg
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "content/articles"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}} — {{theme}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "e.g. silk-road-revival" }
+      - label: "Theme"
+        name: "theme"
+        widget: "select"
+        options: ["travel", "supply-chain", "books", "research"]
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Author", name: "author", widget: "string", default: "Zuloma" }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime" }
+      - { label: "Last Updated", name: "lastUpdated", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Keywords", name: "keywords", widget: "list", required: false }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Infographic", name: "infographic", widget: "image", required: false }
+      - { label: "Reading Time Short", name: "readingTimeShort", widget: "string", default: "3 min" }
+      - { label: "Reading Time Long", name: "readingTimeLong", widget: "string", default: "12 min" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Related Articles (slugs)", name: "relatedArticles", widget: "list", required: false }
+      - label: "Sources"
+        name: "sources"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "ID", name: "id", widget: "number", value_type: "int" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Organization", name: "organization", widget: "string", required: false }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Short Content", name: "shortContent", widget: "markdown" }
+      - { label: "Long Content", name: "longContent", widget: "markdown" }

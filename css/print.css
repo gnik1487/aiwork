@@ -1,0 +1,7 @@
+
+@media print {
+  nav, .mode-toggle, #reading-progress, #related, #listenBtn, #pdfBtn { display: none !important; }
+  body { background: #fff; color: #111; }
+  .article-wrap { max-width: 100%; padding: 0; }
+  a { color: #111; text-decoration: none; }
+}
