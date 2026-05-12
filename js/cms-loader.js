@@ -1,80 +1,85 @@
+async function fetchArticleFiles() {
+  // CHANGE these:
+  const owner = "gnik1487";
+  const repo = "aiwork";
+  const branch = "main";
 
-const CMS_CONFIG = {
-  owner: "gnik1487",
-  repo: "aiwork",
-  branch: "main",
-  folder: "content/articles"
-};
-
-async function githubListFiles() {
-  const url = `https://api.github.com/repos/${CMS_CONFIG.owner}/${CMS_CONFIG.repo}/contents/${CMS_CONFIG.folder}?ref=${CMS_CONFIG.branch}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("Could not fetch article list from GitHub");
-  const data = await res.json();
-  return data.filter(f => f.name.endsWith(".md"));
-}
-
-function parseYAMLValue(value) {
-  if (value === "true") return true;
-  if (value === "false") return false;
-  if (/^\d+$/.test(value)) return Number(value);
-  return value.replace(/^"|"$/g, "").trim();
+  const api = `https://api.github.com/repos/${owner}/${repo}/contents/content/articles?ref=${branch}`;
+  const res = await fetch(api);
+  if (!res.ok) throw new Error("Failed to load article list");
+  const files = await res.json();
+  return files.filter(f => f.name.endsWith(".md"));
 }
 
 function parseFrontmatter(md) {
-  const match = md.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!match) return { meta: {}, body: md };
-  const [, raw, body] = match;
-  const meta = {};
-  raw.split("\n").forEach(line => {
-    const idx = line.indexOf(":");
-    if (idx > -1) {
-      const key = line.slice(0, idx).trim();
-      const val = line.slice(idx + 1).trim();
-      meta[key] = parseYAMLValue(val);
+  const match = md.match(/^---\n([\s\S]*?)\n---\n?/);
+  if (!match) return { data: {}, content: md };
+  const yaml = match[1];
+  const content = md.slice(match[0].length);
+  const data = {};
+  yaml.split("\n").forEach(line => {
+    const i = line.indexOf(":");
+    if (i > -1) {
+      const key = line.slice(0, i).trim();
+      let val = line.slice(i + 1).trim();
+      val = val.replace(/^"|"$/g, "");
+      data[key] = val;
     }
   });
-  return { meta, body };
+  return { data, content };
 }
 
-function basicMarkdownToHtml(md) {
+function mdToHtml(md) {
+  // lightweight markdown converter (basic)
   return md
     .replace(/^### (.*)$/gm, "<h3>$1</h3>")
     .replace(/^## (.*)$/gm, "<h2>$1</h2>")
     .replace(/^# (.*)$/gm, "<h1>$1</h1>")
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
-    .replace(/^\- (.*)$/gm, "<li>$1</li>")
-    .replace(/(<li>[\s\S]*?<\/li>)/g, "<ul>$1</ul>")
     .replace(/\n\n/g, "</p><p>")
     .replace(/^/, "<p>")
     .concat("</p>");
 }
 
+async function fetchArticleMarkdown(downloadUrl) {
+  const res = await fetch(downloadUrl);
+  return res.text();
+}
+
 async function loadArticles() {
-  const files = await githubListFiles();
-  const out = [];
-  for (const f of files) {
-    const md = await fetch(f.download_url).then(r => r.text());
-    const { meta, body } = parseFrontmatter(md);
+  const files = await fetchArticleFiles();
+  const items = [];
 
-    // split short/long by markers
-    const shortMatch = body.match(/## shortContent([\s\S]*?)## longContent/i);
-    const longMatch = body.match(/## longContent([\s\S]*)$/i);
-
-    out.push({
-      ...meta,
-      slug: meta.slug || f.name.replace(".md", ""),
-      shortContent: shortMatch ? shortMatch[1].trim() : "",
-      longContent: longMatch ? longMatch[1].trim() : ""
+  for (const file of files) {
+    const md = await fetchArticleMarkdown(file.download_url);
+    const { data } = parseFrontmatter(md);
+    items.push({
+      title: data.title || "Untitled",
+      slug: data.slug || file.name.replace(".md", ""),
+      category: data.category || "research",
+      description: data.description || "",
+      date: data.date || "",
+      reading_time: Number(data.reading_time || 6),
+      image: data.image || "/images/featured-1.png",
+      featured: data.featured === "true"
     });
   }
 
-  out.sort((a, b) => new Date(b.publishDate || 0) - new Date(a.publishDate || 0));
-  return out;
+  items.sort((a,b) => new Date(b.date) - new Date(a.date));
+  return items;
 }
 
-function formatDate(d) {
-  if (!d) return "";
-  return new Date(d).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+async function loadSingleArticle(slug) {
+  const files = await fetchArticleFiles();
+  const target = files.find(f => f.name === `${slug}.md`);
+  if (!target) return null;
+  const md = await fetchArticleMarkdown(target.download_url);
+  const { data, content } = parseFrontmatter(md);
+
+  return {
+    ...data,
+    shortHtml: mdToHtml(data.short || ""),
+    longHtml: mdToHtml(data.long || content || "")
+  };
 }

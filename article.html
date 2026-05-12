@@ -1,0 +1,175 @@
+
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article | Zuloma</title>
+  <meta name="description" content="Research-driven article on Zuloma." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/print.css" />
+  <style>
+    .article-wrap{max-width:820px;margin:0 auto;padding:100px 16px 80px}
+    .article-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px}
+    .mode-toggle{display:flex;gap:8px;margin:18px 0}
+    .toc{border:1px solid var(--border);padding:12px;border-radius:10px;margin:20px 0}
+    #reading-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:9999}
+    .sources li{margin:8px 0}
+  </style>
+</head>
+<body>
+  <div id="reading-progress"></div>
+
+  <main class="article-wrap">
+    <a href="/articles.html">← Back to Articles</a>
+    <p id="theme"></p>
+    <h1 id="title"></h1>
+    <p id="excerpt"></p>
+    <img id="cover" class="article-cover" alt="" />
+
+    <p id="meta"></p>
+
+    <div class="mode-toggle">
+      <button id="shortBtn">Short Form</button>
+      <button id="longBtn">Long Form</button>
+      <button id="listenBtn">Listen</button>
+      <button id="pdfBtn">Download PDF</button>
+    </div>
+
+    <nav class="toc">
+      <strong>Table of Contents</strong>
+      <ul id="tocList"></ul>
+    </nav>
+
+    <article id="shortView"></article>
+    <article id="longView" style="display:none"></article>
+
+    <section>
+      <h3>Sources</h3>
+      <ol id="sources" class="sources"></ol>
+    </section>
+
+    <section>
+      <h3>Related Articles</h3>
+      <div id="related"></div>
+    </section>
+  </main>
+
+  <script src="/js/cms-loader.js"></script>
+  <script>
+    let utterance, speaking = false;
+
+    function updateProgress() {
+      const sc = window.scrollY;
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = h > 0 ? (sc / h) * 100 : 0;
+      document.getElementById("reading-progress").style.width = pct + "%";
+    }
+    window.addEventListener("scroll", updateProgress);
+
+    function buildTOC(container) {
+      const toc = document.getElementById("tocList");
+      toc.innerHTML = "";
+      const headings = container.querySelectorAll("h2, h3");
+      headings.forEach((h, i) => {
+        const id = "sec-" + i;
+        h.id = id;
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="#${id}">${h.textContent}</a>`;
+        toc.appendChild(li);
+      });
+    }
+
+    function setView(mode) {
+      const shortEl = document.getElementById("shortView");
+      const longEl = document.getElementById("longView");
+      const y = window.scrollY;
+
+      shortEl.style.display = mode === "short" ? "block" : "none";
+      longEl.style.display = mode === "long" ? "block" : "none";
+
+      const url = new URL(location.href);
+      url.searchParams.set("view", mode);
+      history.replaceState({}, "", url);
+
+      buildTOC(mode === "short" ? shortEl : longEl);
+      window.scrollTo(0, y);
+    }
+
+    function setupTTS() {
+      const btn = document.getElementById("listenBtn");
+      btn.addEventListener("click", () => {
+        const active = document.getElementById("shortView").style.display !== "none"
+          ? document.getElementById("shortView")
+          : document.getElementById("longView");
+        const text = active.innerText.trim();
+
+        if (!speaking) {
+          utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 1;
+          speechSynthesis.speak(utterance);
+          speaking = true;
+          btn.textContent = "Pause";
+          utterance.onend = () => { speaking = false; btn.textContent = "Listen"; };
+        } else {
+          speechSynthesis.cancel();
+          speaking = false;
+          btn.textContent = "Listen";
+        }
+      });
+    }
+
+    (async function () {
+      const slug = new URLSearchParams(location.search).get("slug");
+      const view = new URLSearchParams(location.search).get("view") || "short";
+      const articles = await loadArticles();
+      const a = articles.find(x => x.slug === slug);
+
+      if (!a) {
+        document.body.innerHTML = "<main class='article-wrap'><h1>Article not found</h1></main>";
+        return;
+      }
+
+      document.title = `${a.title} | Zuloma`;
+      document.getElementById("theme").textContent = (a.theme || "").toUpperCase();
+      document.getElementById("title").textContent = a.title || "";
+      document.getElementById("excerpt").textContent = a.excerpt || "";
+      document.getElementById("cover").src = a.coverImage || "/images/uploads/default-cover.webp";
+      document.getElementById("cover").alt = a.title || "";
+      document.getElementById("meta").textContent =
+        `${formatDate(a.publishDate)} · Updated ${formatDate(a.lastUpdated)} · ${a.readingTimeShort || "3 min"} / ${a.readingTimeLong || "12 min"} · ${a.author || "Zuloma"}`;
+
+      const shortEl = document.getElementById("shortView");
+      const longEl = document.getElementById("longView");
+      shortEl.innerHTML = basicMarkdownToHtml(a.shortContent || "");
+      longEl.innerHTML = basicMarkdownToHtml(a.longContent || "");
+
+      // Sources
+      const sourcesEl = document.getElementById("sources");
+      const sources = Array.isArray(a.sources) ? a.sources : [];
+      sourcesEl.innerHTML = sources.length
+        ? sources.map(s => `<li><a target="_blank" href="${s.url || '#'}">${s.title || 'Source'}</a> ${s.organization ? `(${s.organization})` : ''}</li>`).join("")
+        : "<li>No sources added yet.</li>";
+
+      // Related
+      const relatedEl = document.getElementById("related");
+      const related = Array.isArray(a.relatedArticles) ? a.relatedArticles : [];
+      const relatedItems = articles.filter(x => related.includes(x.slug)).slice(0, 6);
+      relatedEl.innerHTML = relatedItems.length
+        ? relatedItems.map(r => `<p><a href="/article.html?slug=${encodeURIComponent(r.slug)}">${r.title}</a></p>`).join("")
+        : "<p>No related articles yet.</p>";
+
+      document.getElementById("shortBtn").onclick = () => setView("short");
+      document.getElementById("longBtn").onclick = () => setView("long");
+      document.getElementById("pdfBtn").onclick = () => window.print();
+
+      setView(view);
+      setupTTS();
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
