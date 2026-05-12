@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initHeroAnimation();
   initHeroParallax();
+  initCursor();
 });
 
 /* ── Theme Toggle ── */
@@ -149,3 +150,56 @@ document.addEventListener('click', (e) => {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 });
+/* ── Luxury Custom Cursor ── */
+function initCursor() {
+  // Create the elements
+  const cursorDot = document.createElement('div');
+  const cursorRing = document.createElement('div');
+  
+  // Style them directly for precision
+  Object.assign(cursorDot.style, {
+    position: 'fixed', width: '8px', height: '8px', backgroundColor: 'hsl(var(--accent))',
+    borderRadius: '50%', pointerEvents: 'none', zIndex: '10000', transform: 'translate(-50%, -50%)'
+  });
+  
+  Object.assign(cursorRing.style, {
+    position: 'fixed', width: '40px', height: '40px', border: '1px solid hsl(var(--accent))',
+    borderRadius: '50%', pointerEvents: 'none', zIndex: '9999', transform: 'translate(-50%, -50%)',
+    transition: 'transform 0.15s ease-out'
+  });
+
+  document.body.appendChild(cursorDot);
+  document.body.appendChild(cursorRing);
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top = mouseY + 'px';
+  });
+
+  function animate() {
+    // Lerp (Linear Interpolation) for a smooth "trailing" effect
+    ringX += (mouseX - ringX) * 0.1;
+    ringY += (mouseY - ringY) * 0.1;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top = ringY + 'px';
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // Interaction: Expand ring on hover
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursorRing.style.transform = 'translate(-50%, -50%) scale(1.5)';
+      cursorRing.style.backgroundColor = 'hsla(var(--accent), 0.1)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorRing.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursorRing.style.backgroundColor = 'transparent';
+    });
+  });
+}
