@@ -12,7 +12,7 @@ const html=`<!DOCTYPE html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>${a.title} — Zuloma</title>
 <meta name="description" content="${a.excerpt}">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 <link rel="stylesheet" href="/css/variables.css"><link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/layouts.css">
 <link rel="stylesheet" href="/css/articles.css"><link rel="stylesheet" href="/css/animations.css">
